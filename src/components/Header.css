@@ -1,0 +1,26 @@
+.ui.inverted.segment {
+    padding: 0.5em;
+    position: fixed;
+    z-index: 101;
+    margin: 0em;
+    width: 100%;
+    border-radius: 0px !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ui.image {
+    width: 50px !important;
+    margin-left: 10px;
+    margin-right: 25px;
+}
+
+.ui.secondary.inverted.pointing.menu {
+    margin: 0;
+}
+
+.ui.secondary.inverted.pointing.menu .item  {
+    align-self: center;
+}
+
