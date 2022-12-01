@@ -38,10 +38,10 @@ const Header = () => {
             </Menu>
             <Menu inverted secondary pointing>
                 <Menu.Item>
-                    <Button>Вход</Button>
+                    <Button primary onClick={() => {navigate('/Вход')}}>Вход</Button>
                 </Menu.Item>
                 <Menu.Item>
-                    <Button>Регистрация</Button>
+                    <Button onClick={() => {navigate('/Регистрация')}}>Регистрация</Button>
                 </Menu.Item>
             </Menu>
         </Segment>

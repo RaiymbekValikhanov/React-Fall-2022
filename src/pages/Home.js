@@ -1,48 +1,43 @@
-import { Container, Item, Segment, Button, Label, Icon } from "semantic-ui-react";
-
+import { Container, Item, Image, Button, Label, Icon } from "semantic-ui-react";
+import { useNavigate } from 'react-router-dom';
+import './Home.css'
 
 const Home = () => {
-    const paragraph = "something"
+    const paragraph = "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
+    const navigate = useNavigate()
 
     return (
-        <Container>
+        // <Container>
+        <Item.Group>
             <Item>
-                <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
+                {/* <Item.Image src='https://images.ctfassets.net/uwf0n1j71a7j/32jZ3NAeX28p8voazBOwRQ/46da3f35bf20fbe441c6556227f9d800/traffic-rules-and-fines.png'/> */}
 
                 <Item.Content>
-                    <Item.Header as='a'>My Neighbor Totoro</Item.Header>
-                    <Item.Meta>
-                    <span className='cinema'>IFC Cinema</span>
-                    </Item.Meta>
+                    <Item.Header>Изучайте ПДД с помощью удобного интерфейса</Item.Header>
                     <Item.Description>{paragraph}</Item.Description>
                     <Item.Extra>
-                    <Button primary floated='right'>
-                        Buy tickets
-                        <Icon name='right chevron' />
-                    </Button>
-                    <Label>Limited</Label>
+                        <Button primary floated='right' onClick={() => {navigate('/ПДД')}}>
+                            Учить ПДД
+                            <Icon name='right chevron' />
+                        </Button>
                     </Item.Extra>
                 </Item.Content>
             </Item>
             <Item>
-                <Item.Image src='https://react.semantic-ui.com/images/wireframe/image.png' />
-
                 <Item.Content>
-                    <Item.Header as='a'>My Neighbor Totoro</Item.Header>
-                    <Item.Meta>
-                    <span className='cinema'>IFC Cinema</span>
-                    </Item.Meta>
+                    <Item.Header floated='right'>Зарепляйте знания сдавая тесты</Item.Header>
                     <Item.Description>{paragraph}</Item.Description>
                     <Item.Extra>
-                    <Button primary floated='right'>
-                        Buy tickets
-                        <Icon name='right chevron' />
-                    </Button>
-                    <Label>Limited</Label>
+                        <Button primary floated='left' onClick={() => {navigate('/Экзамены')}}>
+                            <Icon name='left chevron' />
+                            Сдать экзамен
+                        </Button>
                     </Item.Extra>
                 </Item.Content>
+                {/* <Item.Image src='https://avtoliders.ru/wp-content/uploads/ruki-vytyanuty-v-storony-ili-opucsheny_1.jpg'/> */}
             </Item>
-        </Container>
+        </Item.Group>
+        // </Container>
     )
 }
 

@@ -1,10 +1,17 @@
-import { Container, Item, Segment, Button, Label, Icon } from "semantic-ui-react";
+import { Container, Item, Segment, Button, Label, Icon, Grid } from "semantic-ui-react";
 const Rules = () => {
     return (
         <Container>
-            Ведутся работы...
+            <Grid>
+                <Grid.Row>
+                    
+                </Grid.Row>
+                <Grid.Row>
+
+                </Grid.Row>
+            </Grid>
         </Container>
     )
 }
 
-export default Rules
+export default Rules;
