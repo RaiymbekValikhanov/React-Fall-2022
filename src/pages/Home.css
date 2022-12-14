@@ -1,19 +1,22 @@
-.ui.items {
-    width: 85%;
+.ui.items.home-page {
+    padding: 0% 2%;
+    margin-bottom: 5em !important;
+    display: flex;
+    flex-direction: column;
 }
 
-.ui.items>.item {
+.ui.items.home-page>.item {
     font-size: 30px !important;
     color: black;
 
-    width: 100%;
+    width: 90% !important;
     display: flex !important;
     flex-direction: row;
     border-radius: 15px !important;
     min-height: 500px !important;
 }
 
-.ui.items>.item:hover {
+.ui.items.home-page>.item:hover {
     box-shadow: 0px 10px 12px 5px #bbb  ;
 }
 
@@ -22,7 +25,7 @@
     height: 150px !important;
 } */
 
-.ui.items>.item>.content {
+.ui.items.home-page>.item>.content {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
@@ -31,23 +34,25 @@
     height: auto;
 }
 
-.ui.items>.item:first-child {
+.ui.items.home-page>.item:first-child {
     background-image: url('../assets/traffic.jpeg');
     background-size: cover;
     background-color: rgba(0, 0, 0, 1);
     text-align: right;
+    align-self: flex-start;
 }
 
-.ui.items>.item:first-child>.content {
+.ui.items.home-page>.item:first-child>.content {
     background-color: rgba(217, 231, 255, 0.6) !important;
 }
 
-.ui.items>.item:last-child {
+.ui.items.home-page>.item:last-child {
     background-image: url('../assets/exam.jpeg');
     background-size: cover;
+    align-self: flex-end;
 }
 
-.ui.items>.item:last-child>.content {
+.ui.items.home-page>.item:last-child>.content {
     background-color: rgb(219, 219, 219, 0.6) !important;
 }
 

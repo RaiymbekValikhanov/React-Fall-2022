@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
-import { Menu, Segment, Button, Image } from 'semantic-ui-react'
+import React, { useEffect, useState } from 'react'
+import { Menu, Segment, Button, Image, Icon } from 'semantic-ui-react'
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
+import { useCurrentUser } from '../providers/UserProvider';
 
-const Header = () => {
-    const [activeItem, setActiveItem] = useState('Главная');
+const Header = (props) => {
+    const { currentUser, fetchCurrentUser } = useCurrentUser()
+    const { activeItem } = props;
     const navigate = useNavigate();
 
     const onClick = (e, { name } ) => {
-        setActiveItem(name);
         navigate(`/${name}`);
     };
+
+    // useEffect(() => fetchCurrentUser(), [])
 
     return (
         <Segment inverted>
@@ -36,14 +39,24 @@ const Header = () => {
                     onClick={onClick}
                 />
             </Menu>
-            <Menu inverted secondary pointing>
-                <Menu.Item>
-                    <Button primary onClick={() => {navigate('/Вход')}}>Вход</Button>
-                </Menu.Item>
-                <Menu.Item>
-                    <Button onClick={() => {navigate('/Регистрация')}}>Регистрация</Button>
-                </Menu.Item>
-            </Menu>
+            {!currentUser ? (
+                <Menu inverted secondary pointing>
+                    <Menu.Item>
+                        <Button primary onClick={() => {navigate('/Вход')}}>Вход</Button>
+                    </Menu.Item>
+                    <Menu.Item>
+                        <Button onClick={() => {navigate('/Регистрация')}}>Регистрация</Button>
+                    </Menu.Item>
+                </Menu>
+                ) : (
+                <Menu inverted secondary pointing>
+                    <Menu.Item>
+                        <Icon name='user circle' size='big' primary onClick={() => {navigate('/Профиль')}}></Icon>
+                    </Menu.Item>
+
+                </Menu>
+                )
+            }
         </Segment>
     );
 };

@@ -1,0 +1,40 @@
+.side-panel {
+    overflow-y: scroll;
+    position: fixed;
+    left: 0;
+    width: 310px;
+    top: 68px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item {
+    font-size: 16px;
+}
+
+.active.item {
+    font-size: 16px;
+    background-color: #1b1c1d !important;
+    color: white !important;
+    font-weight: 700 !important;
+}
+
+.section {
+    margin-left: 310px;
+    width: 100% !important;
+}
+
+.ui.container {
+    min-width: 1000px !important;
+    align-items: center;
+}
+
+.ui.text.container {
+    text-align: justify;
+    width: 100% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    align-content: center;
+}

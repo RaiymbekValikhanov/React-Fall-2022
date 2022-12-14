@@ -1,15 +1,16 @@
 import { Container, Item, Image, Button, Label, Icon } from "semantic-ui-react";
 import { useNavigate } from 'react-router-dom';
+import Footer from "../components/Footer";
 import './Home.css'
 
-const Home = () => {
+const Home = (props) => {
     const paragraph = "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum"
     const navigate = useNavigate()
 
     return (
-        // <Container>
-        <Item.Group>
-            <Item>
+        <div>
+        <Item.Group className="home-page">
+            <Item className="item-2">
                 {/* <Item.Image src='https://images.ctfassets.net/uwf0n1j71a7j/32jZ3NAeX28p8voazBOwRQ/46da3f35bf20fbe441c6556227f9d800/traffic-rules-and-fines.png'/> */}
 
                 <Item.Content>
@@ -23,7 +24,7 @@ const Home = () => {
                     </Item.Extra>
                 </Item.Content>
             </Item>
-            <Item>
+            <Item className="item-1">
                 <Item.Content>
                     <Item.Header floated='right'>Зарепляйте знания сдавая тесты</Item.Header>
                     <Item.Description>{paragraph}</Item.Description>
@@ -37,7 +38,8 @@ const Home = () => {
                 {/* <Item.Image src='https://avtoliders.ru/wp-content/uploads/ruki-vytyanuty-v-storony-ili-opucsheny_1.jpg'/> */}
             </Item>
         </Item.Group>
-        // </Container>
+        <Footer />
+        </div>
     )
 }
 
