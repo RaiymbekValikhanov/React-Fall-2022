@@ -15,7 +15,10 @@ const Home = (props) => {
 
                 <Item.Content>
                     <Item.Header>Изучайте ПДД с помощью удобного интерфейса</Item.Header>
-                    <Item.Description>{paragraph}</Item.Description>
+                    <Item.Description>
+                    На нашем сайте вы найдете все самые актуальные и полезные материалы по ПДД, включая последние изменения и дополнения к законодательству.
+                    Мы стремимся помочь вам успешно сдать экзамен на водительское удостоверение и безопасно начать свою дорожную жизнь.
+                    </Item.Description>
                     <Item.Extra>
                         <Button primary floated='right' onClick={() => {navigate('/ПДД')}}>
                             Учить ПДД
@@ -27,7 +30,10 @@ const Home = (props) => {
             <Item className="item-1">
                 <Item.Content>
                     <Item.Header floated='right'>Зарепляйте знания сдавая тесты</Item.Header>
-                    <Item.Description>{paragraph}</Item.Description>
+                    <Item.Description>
+                    На нашем сайте вы также найдете различные тесты и интерактивные упражнения, которые помогут вам освоить и закрепить знания по ПДД.
+                    Не упустите шанс обеспечить себе безопасность на дороге и присоединяйтесь к нашей команде успешных водителей!
+                    </Item.Description>
                     <Item.Extra>
                         <Button primary floated='left' onClick={() => {navigate('/Экзамены')}}>
                             <Icon name='left chevron' />
