@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Item, Icon, Segment, Message, Button } from "semantic-ui-react";
-import Cookies from "universal-cookie";
 import { useCurrentUser } from "../providers/UserProvider";
-import { whoami } from "../services/requests";
+import { logout } from "../services/requests";
 import './Profile.css'
-
-const cookies = new Cookies();
 
 const Profile = () => {
     const { currentUser, fetchCurrentUser } = useCurrentUser()
@@ -30,7 +27,7 @@ const Profile = () => {
                             <Item.Header>{currentUser?.username}</Item.Header>
                             <Item.Extra>{currentUser?.email}</Item.Extra>
                             <Button negative floated="right" onClick={(e) => {
-                                cookies.remove('session')
+                                logout()
                                 navigate(0)
                             }}
                             >Выйти</Button>

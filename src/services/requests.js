@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8080'
+const API_URL = 'https://react-app-backend.onrender.com'
+// const API_URL = 'http://localhost:8080'
 
 export async function getRules() {
     return (await fetch(`${API_URL}/rules`)).json()
@@ -56,6 +57,13 @@ export async function whoami() {
     return (await fetch(`${API_URL}/auth/whoami`, {
         credentials: "include"
     })).json()
+}
+
+export async function logout() {
+    return (await fetch(`${API_URL}/auth/logout`, {
+        method: "POST",
+        credentials: "include"
+    })).status
 }
 
 export async function scores() {
