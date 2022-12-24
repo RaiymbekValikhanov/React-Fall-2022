@@ -66,6 +66,25 @@ export async function logout() {
     })).status
 }
 
-export async function scores() {
+export async function getScores() {
+    return (await fetch(`${API_URL}/scores`, {
+        credentials: "include"
+    })).json()
+}
 
+export async function saveScore(exam, result, total) {
+    let res = await fetch(`${API_URL}/score`, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "exam": exam,
+            "result": result,
+            "total": total
+        }),
+        credentials: "include",
+    })
+
+    return res
 }

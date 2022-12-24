@@ -30,6 +30,7 @@ const Header = (props) => {
                 />
                 <Menu.Item
                     name='ПДД'
+                    
                     active={activeItem === 'ПДД'}
                     onClick={onClick}
                 />

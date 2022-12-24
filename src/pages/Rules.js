@@ -31,6 +31,7 @@ const Section = (props) => {
     useEffect(() => {
         getRuleSection(section.id)
             .then(result => {
+                console.log(result)
                 setText(result)
             })
     }, [section])

@@ -12,8 +12,6 @@ import Cookies from 'universal-cookie';
 import Profile from './pages/Profile';
 import { CurrentUserProvider } from './providers/UserProvider';
 
-const MyContext = React.createContext({lol: 'lol'});
-
 function App() {
   
   return (

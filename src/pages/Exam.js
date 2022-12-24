@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Form, Header, Segment, List, Container, Label, Image, Progress, Icon, Message } from 'semantic-ui-react';
 import { useCurrentUser } from "../providers/UserProvider";
-import { getExamSection } from "../services/requests";
+import { getExamSection, saveScore } from "../services/requests";
 
 const Question = ({ question, onAnswer }) => (
     <Segment raised size="huge" textAlign='center'>
@@ -31,6 +31,7 @@ const Question = ({ question, onAnswer }) => (
 
 const Result = ({ all, correct }) => {
     const navigate = useNavigate();
+
     return (
         <Segment textAlign="center">
             <Header as='h1'>
@@ -60,8 +61,9 @@ const Result = ({ all, correct }) => {
 }
 
 const Exam = () => {
-    const { currentUser, fetchCurrentUser } = useCurrentUser()
+    const { currentUser, fetchCurrentUser } = useCurrentUser();
     const { id } = useParams();
+    const [title, setTitle] = useState("");
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [questions, setQuestions] = useState([]);
     const [answers, setAnswers] = useState([]);
@@ -80,9 +82,16 @@ const Exam = () => {
         getExamSection(id)
             .then(result => {
                 setQuestions(result.questions)
-                console.log(result.questions)
+                setTitle(result.title)
+                console.log(result)
             })
     }, [])
+
+    useEffect(() => {
+        if (currentQuestion == questions.length && questions.length > 0) {
+            saveScore(title, correct, questions.length).then(s => console.log(s))
+        }
+    }, [currentQuestion])
 
     return (
         <Container>
@@ -99,7 +108,10 @@ const Exam = () => {
                                             ? (question.choices[answers[index]].correct
                                                 ? 'green'
                                                 : 'red')
-                                            : 'gray'
+                                            : (index == currentQuestion 
+                                                ? 'black' 
+                                                :'gray'
+                                            )
                                     }
                                 >
                                     {index + 1}
@@ -113,7 +125,7 @@ const Exam = () => {
                             onAnswer={handleAnswer}
                         />
                     ) : (
-                        <Result all={questions.length} correct={correct} />
+                        questions.length > 0 && <Result all={questions.length} correct={correct} />
                     )}
                 </Container>
             ) : (
