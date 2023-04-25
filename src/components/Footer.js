@@ -21,8 +21,11 @@ const Footer = () => {
                         <Grid.Column width={8}>
                             <Header inverted as='h4' content='Контакты' />
                             <List link inverted>
-                                <List.Item as='div'>r_valikhanov@kbtu.kz</List.Item>
                                 <List.Item as='div'>a_razak@kbtu.kz</List.Item>
+                                <List.Item as='div'>a_rustemov@kbtu.kz</List.Item>
+                                <List.Item as='div'>e_turgunbek@kbtu.kz</List.Item>
+                                <List.Item as='div'>k_asylbek@kbtu.kz</List.Item>
+                                <List.Item as='div'>s_kuttymurat@kbtu.kz</List.Item>
                             </List>
                         </Grid.Column>
                     </Grid.Row>
